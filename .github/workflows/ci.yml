@@ -19,9 +19,9 @@ jobs:
             - name: Pull images
               run: docker-compose pull
             - name: Build php service
-              run: docker build app --no-cache
+              run: docker-compose build --no-cache phpfpm
             - name: Check php service
-              run: docker-compose run --rm app id
+              run: docker-compose run --rm phpfpm id
             - name: Start services
               run: docker-compose up -d
             - name: Wait for services
