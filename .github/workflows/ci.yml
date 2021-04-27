@@ -19,7 +19,7 @@ jobs:
             - name: Pull images
               run: docker-compose pull
             - name: Build php service
-              run: docker-compose build --no-cache app
+              run: docker build app --no-cache
             - name: Check php service
               run: docker-compose run --rm app id
             - name: Start services
