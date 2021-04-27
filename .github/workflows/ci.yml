@@ -26,7 +26,7 @@ jobs:
               run: docker-compose up -d
             - name: Wait for services
               run: |
-                  while status="$(docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" "$(docker-compose ps -q php)")"; do
+                  while status="$(docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" "$(docker-compose ps -q phpfpm)")"; do
                     case $status in
                       starting) sleep 1;;
                       healthy) exit 0;;
